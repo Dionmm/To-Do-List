@@ -3,7 +3,7 @@ Simple To Do List
 
 ## Requirements
 
-###Manage Tasks (required)
+### Manage Tasks (required)
 
     As a user, I can add new tasks to my list so that I know what I have to get done.
     As a user, I can mark tasks on my to do list as completed so that I know what I have accomplished.
@@ -30,7 +30,9 @@ As a new member, I can register using a email and password to create my own task
     
 ## Authors
 Project Manager – __Kenneth
+
 Frontend – asoclodun,albertukaz
+
 Backend – Krizzu, anOrphanedPlatypus
 
 ## License
