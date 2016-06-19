@@ -26,3 +26,12 @@ As a new member, I can register using a email and password to create my own task
 
     As an administrator, I can view who has registered so that I can see how popular my application is.
     As an administrator, I can see how many tasks each user has created and how many of them are done so that I can measure user adoption for my application.
+    
+    
+## Authors
+Project Manager – __Kenneth
+Frontend – asoclodun,albertukaz
+Backend – Krizzu, anOrphanedPlatypus
+
+## License
+MIT
