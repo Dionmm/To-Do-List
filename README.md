@@ -1,6 +1,13 @@
 # To-Do-List
 Simple To Do List
 
+## Build
+1. git clone https://github.com/kennethk91/To-Do-List.git
+2. cd To-Do-List
+3. npm install
+4. npm start
+5. Server up at: http://localhost:3000/
+
 ## Requirements
 
 ### Manage Tasks (required)
