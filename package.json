@@ -1,0 +1,17 @@
+{
+  "name": "To-Do-List",
+  "main": "server/server.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "start": "node server/server"
+  },
+  "description": "Simple To Do List",
+  "version": "1.0.0",
+  "devDependencies": {
+
+  },
+  "author": " ",
+  "license": "MIT"
+}

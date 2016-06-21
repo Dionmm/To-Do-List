@@ -5,11 +5,11 @@ Simple To Do List
 
 ### Manage Tasks (required)
 
-    As a user, I can add new tasks to my list so that I know what I have to get done.
-    As a user, I can mark tasks on my to do list as completed so that I know what I have accomplished.
-    As a user, I can set tasks as highly important, moderately important, or of low importance (default) so that I can know what is the most important.
-    As a user, I can delete tasks so that my task list is not filled with irrelevant tasks.
-    As a user, I can edit tasks that are created so that I can accurately reflect changes.
+As a user, I can add new tasks to my list so that I know what I have to get done.
+As a user, I can mark tasks on my to do list as completed so that I know what I have accomplished.
+As a user, I can set tasks as highly important, moderately important, or of low importance (default) so that I can know what is the most important.
+As a user, I can delete tasks so that my task list is not filled with irrelevant tasks.
+As a user, I can edit tasks that are created so that I can accurately reflect changes.
 
 ### User Registration (optional)
 
@@ -19,21 +19,21 @@ As a new member, I can register using a email and password to create my own task
 
 ### User Login (optional)
 
-    As a registered member, I can login using the email and password that I registered with to view my tasks.
-    As a registered member, I can request a password change if I forgot my password so that I can log in.
+As a registered member, I can login using the email and password that I registered with to view my tasks.
+As a registered member, I can request a password change if I forgot my password so that I can log in.
 
 ### User Management (stretch optional)
 
-    As an administrator, I can view who has registered so that I can see how popular my application is.
-    As an administrator, I can see how many tasks each user has created and how many of them are done so that I can measure user adoption for my application.
-    
-    
+As an administrator, I can view who has registered so that I can see how popular my application is.
+As an administrator, I can see how many tasks each user has created and how many of them are done so that I can measure user adoption for my application.
+
+
 ## Authors
-Project Manager – __Kenneth
+Project Manager: __Kenneth
 
-Frontend – asoclodun,albertukaz
+Frontend: albertukaz
 
-Backend – Krizzu, anOrphanedPlatypus
+Backend: Krizzu, anOrphanedPlatypus
 
 ## License
 MIT
