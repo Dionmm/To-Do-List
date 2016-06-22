@@ -75,3 +75,11 @@ modules/views/
 
 #webpack
 /bundle
+
+# --------------------
+# Angular2 Files
+# --------------------
+typings
+public/app/**/*.js
+public/app/**/*.map
+jspm_packages

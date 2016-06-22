@@ -5,8 +5,9 @@ Simple To Do List
 1. git clone https://github.com/kennethk91/To-Do-List.git
 2. cd To-Do-List
 3. npm install
-4. npm start
-5. Server up at: http://localhost:3000/
+4. (if you don't have nodemon) npm install -g nodemon
+5. nodemon server/server or npm start (with live typescript compiler)
+6. Server up at: http://localhost:3000/
 
 ## Requirements
 
