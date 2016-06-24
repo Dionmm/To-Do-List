@@ -21,6 +21,21 @@
   <!-- 3. Display the application -->
   <body>
     <my-app>Loading...</my-app>
+    <form action="/add" method="post">
+      <input type="text" name="Text">
+      <input type="text" name="Status">
+      <input type="text" name="Priority">
+      <input type="submit">
+    </form>
+    <form action="/edit" method="post">
+      <input type="submit" name="edit">
+    </form>
+    <form action="/delete" method="post">
+      <input type="submit" name="delete">
+    </form>
+    <form action="/load" method="get">
+      <input type="submit" name="load">
+    </form>
+    
   </body>
-
 </html>
