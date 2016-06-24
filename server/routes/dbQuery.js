@@ -19,12 +19,11 @@ router.use(function(req,res,next){
   next();
 })
 
-
 router.get("/", function(req, res){
 
-  //check if query object is empty (no parameters has been send). If yes, send whole db
-  if(_.isEmpty(req.query)) {res.json(req.db.data)}
-  else { // else, complete query
+  //check if query object is empty (no parameters has been send).
+  if(_.isEmpty(req.query)) {res.json(req.db)} //if it's empty, send whole DB!
+  else { // else, complete query with given id
     let id = req.query.id;
     if(id < 0 || id > req.db.length) {
       res.json({empty: null});
