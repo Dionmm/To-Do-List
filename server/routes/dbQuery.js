@@ -3,8 +3,12 @@
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
+var _ = require("lodash");
+var bodyParser = require("body-parser");
 
 let router = express.Router();
+
+// router.use(bodyParser.json());  // to support url-encoded stuff ex. name=foo&color=red
 
 //read a file and parse it to json format, then run next() to indicate that middleware has finished
 router.use(function(req,res,next){
@@ -15,22 +19,25 @@ router.use(function(req,res,next){
   next();
 })
 
-//send back specified data entry
-router.get("/:id", function(req, res){
-  let id = req.params.id;
-  if(id < 0 || id > req.db.length) {
-    res.json({empty: null});
-  }
-  else {
-    res.json(req.db.data[req.params.id]);
+
+router.get("/", function(req, res){
+
+  //check if query object is empty (no parameters has been send). If yes, send whole db
+  if(_.isEmpty(req.query)) {res.json(req.db.data)}
+  else { // else, complete query
+    let id = req.query.id;
+    if(id < 0 || id > req.db.length) {
+      res.json({empty: null});
+    }
+    else {
+      res.json(req.db.data[id]);
+    }
   }
 
 });
 
 //send all datas
-router.get("/", function(req, res){
-  res.json(req.db);
-});
+
 
 
 module.exports = router;

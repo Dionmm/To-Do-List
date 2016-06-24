@@ -2,12 +2,8 @@
 
 var express = require('express');
 var path = require('path');
-var bodyParser = require('body-parser');
 
 let app = express();
-
-//parse it into json files!
-app.use(bodyParser.json());
 
 //routers
 let dbRouter = require('./routes/dbQuery.js');
