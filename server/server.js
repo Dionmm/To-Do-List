@@ -20,7 +20,7 @@ app.get("/", function (req, res) {
 });
 
 //set up a route for db request
-app.use("/data", dbRouter);
+app.use("/load", dbRouter);
 
 //start app
 app.listen(3000, function () {
