@@ -7,6 +7,7 @@ let app = express();
 
 //routers
 let dbRouter = require('./routes/dbQuery.js');
+
 //public folder
 let publicPath = path.join(__dirname, "../public");
 
@@ -20,7 +21,7 @@ app.get("/", function (req, res) {
 });
 
 //set up a route for db request
-app.use("/data", dbRouter);
+app.use("/load", dbRouter);
 
 //start app
 app.listen(3000, function () {
