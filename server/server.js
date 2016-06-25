@@ -2,9 +2,19 @@
 
 var express = require('express');
 var path = require('path');
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
 
 let app = express();
+let dbUrl = 'mongodb://orangeBees:Honey68@ds023654.mlab.com:23654/to-do-list';
 
+//DB Connection
+mongoose.connect(dbUrl);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(){
+	console.log("We're in boss, what now?");
+})
 //routers
 let dbRouter = require('./routes/dbQuery.js');
 //public folder
