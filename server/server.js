@@ -37,6 +37,9 @@ app.get("/", function (req, res) {
 //set up a route for db request
 app.use("/task", taskRouter);
 
+//app.use("/user", userRouter);
+
+
 //start app
 app.listen(3000, function () {
   console.log('App listening on port 3000!');

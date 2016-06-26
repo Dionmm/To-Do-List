@@ -17,7 +17,8 @@ let taskSchema = new mongoose.Schema({
   },
   "Desc": { type: String, required: true },
   "Xcoord": { type: Number, required: true },
-  "Ycoord": { type: Number, required: true }
+  "Ycoord": { type: Number, required: true },
+  "DateCreated": {type: Date, required: true, default: Date.now}
 });
 
 // taskSchema.methods.methodName = function(arg1){

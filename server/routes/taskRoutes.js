@@ -16,7 +16,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
 //   "TaskID": { type: String, required: true },
 //   "Status": { type: Boolean, required: true },
 //   "Priority": { type: String, required: true },
-//   "Description": { type: String, required: true },
+//   "Desc": { type: String, required: true },
 //   "Xcoord": { type: Number, required: true },
 //   "Ycoord": { type: Number, required: true }
 // });
@@ -40,9 +40,10 @@ router.post("/add", function (req, res) {
     UserID: req.body.UserID,
     Status: req.body.Status,
     Priority: req.body.Priority.toLowerCase(),
-    Desc: req.body.Description,
+    Desc: req.body.Desc,
     Xcoord: req.body.XCoord,
     Ycoord: req.body.YCoord,
+    DateCreated: new Date()
   });
 
   newTask.save(function (err, result) {
@@ -58,7 +59,23 @@ router.post("/add", function (req, res) {
 });
 
 router.post("/edit", function(req, res){
-  
+  Task.update({ _id: req.body.TaskID}, {
+    Status: req.body.Status,
+    Priority: req.body.Priority.toLowerCase(),
+    Desc: req.body.Desc,
+    Xcoord: req.body.XCoord,
+    Ycoord: req.body.YCoord
+  },
+  {runValidators: true},
+  function(err, task){
+    if(err){
+      console.error(err.message)
+      res.status(500).json({"err": err});
+    } else{
+      console.log(task);
+      res.status(200).end();
+    }
+  });
 });
 
 
