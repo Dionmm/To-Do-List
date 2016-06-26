@@ -6,8 +6,8 @@ var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 
 let app = express();
-// let dbUrl = 'mongodb://orangeBees:Honey68@ds023654.mlab.com:23654/to-do-list';
-let dbUrl = 'mongodb://localhost/simpleDB';
+let dbUrl = 'mongodb://orangeBees:Honey68@ds023654.mlab.com:23654/to-do-list';
+//let dbUrl = 'mongodb://localhost/simpleDB';
 
 //DB Connection
 mongoose.connect(dbUrl);
@@ -18,7 +18,8 @@ db.once('open', function(){
 });
 
 //routers
-let dbRouter = require('./routes/dbQuery.js');
+let taskRouter = require('./routes/taskRoutes.js');
+let userRouter = require('./routes/userRoutes.js');
 
 //public folder
 let publicPath = path.join(__dirname, "../public");
@@ -34,7 +35,7 @@ app.get("/", function (req, res) {
 
 
 //set up a route for db request
-app.use("/data", dbRouter);
+app.use("/task", taskRouter);
 
 //start app
 app.listen(3000, function () {

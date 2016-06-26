@@ -8,7 +8,8 @@ var Task = require("../Model/Task");
 
 let router = express.Router();
 
-router.use(bodyParser());
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }))
 
 // let taskSchema = new mongoose.Schema({
 //   "UserID": { type: String, required: true },
@@ -24,31 +25,38 @@ router.use(bodyParser());
 router.get("/", function(req, res){
   //return every task
   Task.find({}, function (err, data) {
-    if(err) throw err;
-
-    console.log(data);
-    res.redirect('/');
+    if(err){
+      console.error(err);
+      res.json({"err": err})
+    }else{
+      res.json(data);
+    }
   });
-
 });
 
 router.post("/add", function (req, res) {
 
-  let newTask = Task({
+  var newTask =  new Task({
     UserID: req.body.UserID,
-    TaskID: req.body.TaskID,
     Status: req.body.Status,
-    Priority: req.body.Priority,
-    Description: req.body.Description,
+    Priority: req.body.Priority.toLowerCase(),
+    Desc: req.body.Description,
     Xcoord: req.body.XCoord,
     Ycoord: req.body.YCoord,
   });
 
   newTask.save(function (err) {
-    if(err) throw err;
-    console.log("SAVED Task ID"+ newTask._id);
+    if(err){
+      console.error(err.message)
+    } else{
+      console.log("SAVED Task ID " + newTask._id);
+    }
+    res.json({"err": err});
   })
-  res.redirect("/");
+});
+
+router.post("/edit", function(req, res){
+
 });
 
 

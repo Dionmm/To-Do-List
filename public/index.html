@@ -21,9 +21,8 @@
   <!-- 3. Display the application -->
   <body>
     <my-app>Loading...</my-app>
-    <form action="/data/add" method="post">
+    <form action="/task/add" method="post">
       <input type="text" name="UserID" placeholder="UserID"><br />
-      <input type="text" name="TaskID" placeholder="TaskID"><br />
       <input type="text" name="Status" placeholder="Status"><br />
       <input type="text" name="Priority" placeholder="Priority"><br />
       <input type="text" name="Description" placeholder="Description"><br />
@@ -31,13 +30,13 @@
       <input type="text" name="YCoord" placeholder="YCoord"><br />
       <input type="submit">
     </form><br /><br /><br />
-    <form action="/data/edit" method="post">
+    <form action="/task/edit" method="post">
       <input type="submit" name="edit">
     </form>
-    <form action="/data/delete" method="post">
+    <form action="/task/delete" method="post">
       <input type="submit" name="delete">
     </form>
-    <form action="/data" method="get">
+    <form action="/task" method="get">
       <input type="submit">
     </form>
 
