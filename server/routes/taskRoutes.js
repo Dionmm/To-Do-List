@@ -27,7 +27,7 @@ router.get("/", function(req, res){
   Task.find({}, function (err, data) {
     if(err){
       console.error(err);
-      res.json({"err": err})
+      res.status(500).json({"err": err})
     }else{
       res.json(data);
     }
@@ -45,18 +45,20 @@ router.post("/add", function (req, res) {
     Ycoord: req.body.YCoord,
   });
 
-  newTask.save(function (err) {
+  newTask.save(function (err, result) {
     if(err){
       console.error(err.message)
+      res.status(500).json({"err": err});
     } else{
       console.log("SAVED Task ID " + newTask._id);
+      console.log(result);
+      res.status(200).end();
     }
-    res.json({"err": err});
   })
 });
 
 router.post("/edit", function(req, res){
-
+  
 });
 
 
