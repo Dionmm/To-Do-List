@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {TodoItemComponent} from "./todo-item.component";
 import {TodoItem} from "./models/todo-item";
+import {TodoService} from "./services/todo.service";
+import './rxjs-operators';
+
 @Component({
   selector: 'my-app',
   template: `
@@ -14,6 +17,14 @@ import {TodoItem} from "./models/todo-item";
     directives: [TodoItemComponent]
 })
 export class AppComponent {
+
+    getTodos() {
+        this.TodoService.getHeroes()
+        .subscribe(
+            heroes => this.heroes = heroes,
+        error =>  this.errorMessage = <any>error);
+    }
+
     todoItems: TodoItem[] = [{
             "TaskID": 1234567,
             "Status": 1,
