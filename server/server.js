@@ -6,7 +6,8 @@ var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 
 let app = express();
-let dbUrl = 'mongodb://orangeBees:Honey68@ds023654.mlab.com:23654/to-do-list';
+// let dbUrl = 'mongodb://orangeBees:Honey68@ds023654.mlab.com:23654/to-do-list';
+let dbUrl = 'mongodb://localhost/simpleDB';
 
 //DB Connection
 mongoose.connect(dbUrl);
@@ -14,7 +15,8 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
 	console.log("We're in boss, what now?");
-})
+});
+
 //routers
 let dbRouter = require('./routes/dbQuery.js');
 
@@ -30,8 +32,9 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(publicPath, "index.html"));
 });
 
+
 //set up a route for db request
-app.use("/load", dbRouter);
+app.use("/data", dbRouter);
 
 //start app
 app.listen(3000, function () {

@@ -21,19 +21,23 @@
   <!-- 3. Display the application -->
   <body>
     <my-app>Loading...</my-app>
-    <form action="/add" method="post">
-      <input type="text" name="Text">
-      <input type="text" name="Status">
-      <input type="text" name="Priority">
+    <form action="/data/add" method="post">
+      <input type="text" name="UserID" placeholder="UserID"><br />
+      <input type="text" name="TaskID" placeholder="TaskID"><br />
+      <input type="text" name="Status" placeholder="Status"><br />
+      <input type="text" name="Priority" placeholder="Priority"><br />
+      <input type="text" name="Description" placeholder="Description"><br />
+      <input type="text" name="XCoord" placeholder="XCoord"><br />
+      <input type="text" name="YCoord" placeholder="YCoord"><br />
       <input type="submit">
-    </form>
-    <form action="/edit" method="post">
+    </form><br /><br /><br />
+    <form action="/data/edit" method="post">
       <input type="submit" name="edit">
     </form>
-    <form action="/delete" method="post">
+    <form action="/data/delete" method="post">
       <input type="submit" name="delete">
     </form>
-    <form action="/load" method="get">
+    <form action="/data" method="get">
       <input type="submit">
     </form>
 
