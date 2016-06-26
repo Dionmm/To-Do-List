@@ -78,8 +78,16 @@ router.post("/edit", function(req, res){
   });
 });
 
-
-
+router.post("/delete", function(req, res){
+  Task.remove({ _id: req.body.TaskID}, function(err){
+    if(err){
+      console.error(err.message)
+      res.status(500).json({"err": err});
+    } else{
+      res.status(200).end();
+    }
+  });
+});
 
 
 module.exports = router;
