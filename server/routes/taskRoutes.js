@@ -32,9 +32,7 @@ router.get("/", function(req, res){
       res.json(data);
     }
   });
-});
-
-router.post("/add", function (req, res) {
+}).post("/", function (req, res) {
 
   var newTask =  new Task({
     UserID: req.body.UserID,
@@ -56,10 +54,8 @@ router.post("/add", function (req, res) {
       res.status(200).end();
     }
   })
-});
-
-router.post("/edit", function(req, res){
-  Task.update({ _id: req.body.TaskID}, {
+}).put("/:task_id", function(req, res){
+  Task.update({ _id: req.params.task_id}, {
     Status: req.body.Status,
     Priority: req.body.Priority.toLowerCase(),
     Desc: req.body.Desc,
@@ -76,10 +72,8 @@ router.post("/edit", function(req, res){
       res.status(200).end();
     }
   });
-});
-
-router.post("/delete", function(req, res){
-  Task.remove({ _id: req.body.TaskID}, function(err){
+}).delete("/:task_id", function(req, res){
+  Task.remove({ _id: req.params.task_id}, function(err){
     if(err){
       console.error(err.message)
       res.status(500).json({"err": err});
