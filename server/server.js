@@ -25,7 +25,6 @@ let taskRouter = require('./routes/taskRoutes.js');
 let userRouter = require('./routes/userRoutes.js');
 
 
-
 // ========================================== SHARING PUBLIC CONTENT ======================================================
 app.use (express.static(publicPath));
 app.use("/node_modules", express.static(path.join(__dirname,"../node_modules")));
