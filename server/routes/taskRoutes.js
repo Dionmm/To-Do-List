@@ -8,20 +8,12 @@ var Task = require("../Model/Task");
 
 let router = express.Router();
 
+// ========================================== PARSING REQUEST BODY ======================================================
 router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }))
-
-// let taskSchema = new mongoose.Schema({
-//   "UserID": { type: String, required: true },
-//   "TaskID": { type: String, required: true },
-//   "Status": { type: Boolean, required: true },
-//   "Priority": { type: String, required: true },
-//   "Desc": { type: String, required: true },
-//   "Xcoord": { type: Number, required: true },
-//   "Ycoord": { type: Number, required: true }
-// });
+router.use(bodyParser.urlencoded({ extended: true }));
 
 
+// ========================================== GET ======================================================
 router.get("/", function(req, res){
   //return every task
   Task.find({}, function (err, data) {
@@ -32,8 +24,9 @@ router.get("/", function(req, res){
       res.json(data);
     }
   });
-}).post("/", function (req, res) {
-
+});
+// ========================================== POST ======================================================
+router.post("/", function (req, res) {
   var newTask =  new Task({
     UserID: req.body.UserID,
     Status: req.body.Status,
@@ -54,7 +47,11 @@ router.get("/", function(req, res){
       res.status(200).end();
     }
   })
-}).put("/:task_id", function(req, res){
+});
+
+
+// ========================================== PUT (UPDATE) ======================================================
+router.put("/:task_id", function(req, res){
   Task.update({ _id: req.params.task_id}, {
     Status: req.body.Status,
     Priority: req.body.Priority.toLowerCase(),
@@ -72,7 +69,10 @@ router.get("/", function(req, res){
       res.status(200).end();
     }
   });
-}).delete("/:task_id", function(req, res){
+});
+
+// ========================================== DELETE ======================================================
+router.delete("/:task_id", function(req, res){
   Task.remove({ _id: req.params.task_id}, function(err){
     if(err){
       console.error(err.message)
