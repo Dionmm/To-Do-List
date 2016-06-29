@@ -2,17 +2,7 @@
   "name": "To-Do-List",
   "main": "server/server.js",
   "dependencies": {
-    "@angular/common": "2.0.0-rc.3",
-    "@angular/compiler": "2.0.0-rc.3",
-    "@angular/core": "2.0.0-rc.3",
-    "@angular/forms": "0.1.1",
-    "@angular/http": "2.0.0-rc.3",
-    "@angular/platform-browser": "2.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.3",
-    "@angular/router": "3.0.0-alpha.7",
-    "@angular/router-deprecated": "2.0.0-rc.2",
-    "@angular/upgrade": "2.0.0-rc.3",
-    "angular2-in-memory-web-api": "0.0.12",
+    "angular": "^1.5.7",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",
@@ -33,9 +23,7 @@
   "description": "Simple To Do List",
   "version": "1.0.0",
   "devDependencies": {
-    "concurrently": "^2.0.0",
-    "typescript": "^1.8.10",
-    "typings": "^1.0.4"
+    "concurrently": "^2.0.0"
   },
   "author": "See README",
   "license": "MIT"

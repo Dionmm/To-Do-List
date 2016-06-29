@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <!-- 1. Load libraries -->
-     <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <!-- 2. Load app -->
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/todo-list.controller.js"></script>
+    <script src="/app/directives/todo-item.directive.js"></script>
+    <script src="/app/services/todo-service.service.js"></script>
   </head>
 
   <!-- 3. Display the application -->
   <body>
-    <my-app>Loading...</my-app>
+    <div ng-app="todoList">
+      <div ng-controller="todoListCtrl as vm">
+        <div ng-repeat="item in vm.items">
+          <todo-item item="item" />
+        </div>
+      </div>
+    </div>
     <form action="/task" method="post">
       <input type="text" name="UserID" placeholder="UserID"><br />
       <input type="text" name="Status" placeholder="Status"><br />

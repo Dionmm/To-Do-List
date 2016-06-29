@@ -79,7 +79,5 @@ modules/views/
 # --------------------
 # Angular2 Files
 # --------------------
-typings
-public/app/**/*.js
 public/app/**/*.map
 jspm_packages
