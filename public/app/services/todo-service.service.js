@@ -17,9 +17,8 @@
 
       var deferred = $q.defer();
 
-      $http.get('/tickets').then(function(result) {
-        console.log(result);
-        deferred.resolve(result);
+      $http.get('/task').then(function(result) {
+        deferred.resolve(result.data);
       }, function(error) {
         deferred.reject('Failed');
       });

@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
     <!-- 1. Load libraries -->
     <script src="/node_modules/angular/angular.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/utils/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/CSSPlugin.min.js"></script>
+
     <!-- 2. Load app -->
     <script src="/app/app.js"></script>
     <script src="/app/controllers/todo-list.controller.js"></script>
@@ -18,8 +24,15 @@
   <body>
     <div ng-app="todoList">
       <div ng-controller="todoListCtrl as vm">
-        <div ng-repeat="item in vm.items">
-          <todo-item item="item" />
+        <!--<h1 class="todo-items__header">
+          Todos
+        </h1>-->
+        <div class="todo-items__wrapper">
+          <div class="todo-items">
+            <div ng-repeat="item in vm.items">
+              <todo-item item="item" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -47,6 +60,5 @@
     <form action="/task" method="get">
       <input type="submit">
     </form>
-
   </body>
 </html>

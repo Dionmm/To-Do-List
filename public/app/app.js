@@ -1,7 +1,14 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('todoList', []);
+  document.addEventListener('DOMContentLoaded', function(event) {
+
+    Draggable.create('.todo-items__wrapper', { type:'scroll', edgeResistance: 1 });
+
+  });
+
+
+  angular
+    .module('todoList', []);
 
 })();

@@ -11,18 +11,10 @@
 
     var vm = this;
 
-    vm.items = [
-      {
-        'name': 'yolo'
-      },
-      {
-        'name': 'yolo2'
-      }
-    ];
 
     TodoListService.getTodos().then(function(data){
-      console.log(data);
-    })
+      vm.items = data;
+    });
 
   }
 
