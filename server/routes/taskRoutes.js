@@ -32,8 +32,8 @@ router.post("/", function (req, res) {
     Status: req.body.Status,
     Priority: req.body.Priority.toLowerCase(),
     Desc: req.body.Desc,
-    Xcoord: req.body.XCoord,
-    Ycoord: req.body.YCoord,
+    Xcoord: req.body.Xcoord,
+    Ycoord: req.body.Ycoord,
     DateCreated: new Date()
   });
 
@@ -56,8 +56,8 @@ router.put("/:task_id", function(req, res){
     Status: req.body.Status,
     Priority: req.body.Priority.toLowerCase(),
     Desc: req.body.Desc,
-    Xcoord: req.body.XCoord,
-    Ycoord: req.body.YCoord
+    Xcoord: req.body.Xcoord,
+    Ycoord: req.body.Ycoord
   },
   {runValidators: true},
   function(err, task){

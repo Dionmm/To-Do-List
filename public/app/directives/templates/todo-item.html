@@ -1,0 +1,10 @@
+<div class="todo-item" item="item" ng-style="::{ 'top': item.Ycoord + 'px', 'left': item.Xcoord + 'px' }" ng-dblclick="editTodo()">
+  <div class="todo-item__inner" ng-if="!editing">
+    <div class="todo-item__description" ng-bind="::item.Desc">
+
+    </div>
+  </div>
+  <div class="todo-item__edit" ng-if="editing">
+    <textarea type="text" ng-model="item.Desc"></textarea>
+  </div>
+</div>

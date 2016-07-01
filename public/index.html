@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/utils/Draggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/CSSPlugin.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
     <!-- 2. Load app -->
     <script src="/app/app.js"></script>
@@ -28,7 +29,7 @@
           Todos
         </h1>-->
         <div class="todo-items__wrapper">
-          <div class="todo-items">
+          <div class="todo-items" ng-dblclick="vm.addTodo($event)">
             <div ng-repeat="item in vm.items">
               <todo-item item="item" />
             </div>
