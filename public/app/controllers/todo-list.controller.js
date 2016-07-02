@@ -22,8 +22,7 @@
 
     function addTodo(e) {
 
-      console.log(e.clientX, corkboard.pointerX);
-      console.log(e.clientY, corkboard.pointerY);
+      corkboard.update();
 
       var todo = {
         UserID: '666',
