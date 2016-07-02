@@ -12,6 +12,9 @@
     function link(scope, element, attrs) {
 
       scope.editing = false;
+      setTimeout(function(){
+        element[0].classList.add('ready');
+      }, 200);
 
       var dragItem = Draggable.create(element[0], { type:"x,y", edgeResistance: 1, bounds:".todo-items" })[0];
 
@@ -50,11 +53,10 @@
             // Randomly add a different animation
             element[0].classList.add('deleted--right');
           }
-          // Destroy the scope so it doesn't leave any leftovers
           // Destroy the draggable so it doesn't leave any leftovers
-          console.log(scope.item.Xcoord);
           dragItem.kill();
           TweenLite.to(element[0], 0 ,{css:{left: dragItem.x + scope.item.Xcoord, top:dragItem.y + scope.item.Ycoord}});
+          // Destroy the scope so it doesn't leave any leftovers
           scope.$destroy();
 
           setTimeout(function () {

@@ -95,6 +95,25 @@ body {
   left: 50%;
   margin-left: -15px;
   transition: all 200ms;
+  animation: pin 200ms ease-in;
+}
+.todo-item.ready .todo-item__delete {
+  animation: none;
+}
+@keyframes pin {
+  0% {
+   opacity: 0;
+    top: -40px;
+  }
+  50% {
+    height: 50px;
+    top: -40px;
+    opacity: 1;
+  }
+  100% {
+    height: 48px;
+    top: -30px;
+  }
 }
 .todo-item__delete:after {
   content: "";
