@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('todoList', []);
+    .module('todoList', ['ngSanitize']);
 
 })();

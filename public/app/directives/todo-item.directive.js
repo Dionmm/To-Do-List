@@ -11,6 +11,7 @@
 
     function link(scope, element, attrs) {
 
+      scope.item.Desc = scope.item.Desc.replace(/\r?\n/g, '<br />');
       scope.editing = false;
       setTimeout(function(){
         element[0].classList.add('ready');
@@ -41,8 +42,18 @@
         TodoListService.updateTodo(itemCopy);
       });
 
-      scope.editTodo = function() {
+      scope.editTodo = function(e) {
+        e.stopPropagation();
         scope.editing = !scope.editing;
+        // Need a slight timeout to let angular render the edit div, maybe there is a better way to do this though?
+        if(scope.editing) {
+          scope.item.Desc = scope.item.Desc.replace(/<br \/>/g, '\r\n');
+          setTimeout(function () {
+            element[0].querySelectorAll('textarea')[0].focus();
+          }, 50);
+        } else {
+          scope.item.Desc = scope.item.Desc.replace(/\r?\n/g, '<br />');
+        }
       };
 
       scope.deleteTodo = function() {

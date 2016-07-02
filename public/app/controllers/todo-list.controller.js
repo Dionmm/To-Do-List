@@ -22,12 +22,15 @@
 
     function addTodo(e) {
 
+      console.log(e.clientX, corkboard.pointerX);
+      console.log(e.clientY, corkboard.pointerY);
+
       var todo = {
         UserID: '666',
         Status: true,
         Priority: 'high',
         Desc: 'My new todo',
-        Xcoord: e.clientX - 110 + (corkboard.x * -1),
+        Xcoord: e.clientX - 100 + (corkboard.x * -1),
         Ycoord: e.clientY + (corkboard.y * -1)
       };
 

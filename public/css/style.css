@@ -34,13 +34,14 @@ body {
     background: yellow;
     width: 200px;
     height: 300px;
-    padding: 10px;
+    padding: 30px 10px 10px;
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
     font-family: 'Indie Flower', cursive;
+    box-sizing: border-box;
 }
 .todo-item.deleted:not(.deleted--right) {
-  animation: deleted 600ms ease-in;
-  transform-origin: top center;
+    animation: deleted 600ms ease-in;
+    transform-origin: top center;
 }
 .todo-item.deleted--right {
   animation: deleted-right 600ms ease-in;
