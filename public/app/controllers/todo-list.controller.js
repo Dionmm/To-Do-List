@@ -28,14 +28,23 @@
         Priority: 'high',
         Desc: 'My new todo',
         Xcoord: e.clientX - 110 + (corkboard.x * -1),
-        Ycoord: e.clientY + (corkboard.y * -1),
+        Ycoord: e.clientY + (corkboard.y * -1)
       };
 
       TodoListService.addTodo(todo).then(function(data) {
+        todo._id = data;
         vm.items.push(todo);
       });
 
-    };
+    }
+
+    function deleteTodo(todo) {
+
+      TodoListService.deleteTodo(todo).then(function(data) {
+        
+      });
+
+    }
 
   }
 

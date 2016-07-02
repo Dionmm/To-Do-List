@@ -44,7 +44,7 @@ router.post("/", function (req, res) {
     } else{
       console.log("SAVED Task ID " + newTask._id);
       console.log(result);
-      res.status(200).end();
+      res.status(200).json({"_id": newTask._id}).end();
     }
   })
 });

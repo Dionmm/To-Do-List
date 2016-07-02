@@ -13,7 +13,7 @@
 
       scope.editing = false;
 
-      var dragItem = Draggable.create(element[0], { type:"x,y", edgeResistance:0.65, bounds:".todo-items" })[0];
+      var dragItem = Draggable.create(element[0], { type:"x,y", edgeResistance: 1, bounds:".todo-items" })[0];
 
       dragItem.addEventListener('dragstart', function() {
         // Disable the main corkboard from being dragged
@@ -24,14 +24,46 @@
         // Allow the main corkboard to be dragged again
         Draggable.get('.todo-items__wrapper').enable();
         // Update the position on the note
-        scope.item.Xcoord = dragItem.x + scope.item.Xcoord;
-        scope.item.Ycoord = dragItem.y + scope.item.Ycoord;
-        TodoListService.updateTodo(scope.item);
+        var itemCopy = {
+          _id: scope.item._id,
+          UserID: scope.item.UserID,
+          Status: scope.item.Status,
+          Priority: scope.item.Priority,
+          Desc: scope.item.Desc,
+          Xcoord: dragItem.x + scope.item.Xcoord,
+          Ycoord: dragItem.y + scope.item.Ycoord,
+          __v: scope.item.__v,
+          DateCreated: scope.item.DateCreated
+        };
+        TodoListService.updateTodo(itemCopy);
       });
 
       scope.editTodo = function() {
         scope.editing = !scope.editing;
-      }
+      };
+
+      scope.deleteTodo = function() {
+        TodoListService.deleteTodo(scope.item).then(function() {
+          // Add the deleted class to the element then delete it
+          element[0].classList.add('deleted');
+          if(Math.random() > .5) {
+            // Randomly add a different animation
+            element[0].classList.add('deleted--right');
+          }
+          // Destroy the scope so it doesn't leave any leftovers
+          // Destroy the draggable so it doesn't leave any leftovers
+          console.log(scope.item.Xcoord);
+          dragItem.kill();
+          TweenLite.to(element[0], 0 ,{css:{left: dragItem.x + scope.item.Xcoord, top:dragItem.y + scope.item.Ycoord}});
+          scope.$destroy();
+
+          setTimeout(function () {
+            // Finished animating, now remove the element
+            element.remove();
+          }, 550); // Kill it slightly before the animation ends
+        });
+
+      };
 
     }
     

@@ -38,6 +38,79 @@ body {
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
     font-family: 'Indie Flower', cursive;
 }
+.todo-item.deleted:not(.deleted--right) {
+  animation: deleted 600ms ease-in;
+  transform-origin: top center;
+}
+.todo-item.deleted--right {
+  animation: deleted-right 600ms ease-in;
+  transform-origin: top center;
+}
+.todo-item.deleted .todo-item__delete {
+  top: -55px;
+  opacity: 0;
+}
+@keyframes deleted {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  33% {
+    transform: rotate(2deg) translateY(120px);
+    opacity: 1;
+  }
+  66% {
+    transform: rotate(6deg) translateY(250px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(9deg) translateY(400px);
+    opacity: 0;
+  }
+}
+@keyframes deleted-right {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  33% {
+    transform: rotate(-2deg) translateY(120px);
+    opacity: 1;
+  }
+  66% {
+    transform: rotate(-6deg) translateY(250px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-9deg) translateY(400px);
+    opacity: 0;
+  }
+}
+.todo-item__delete {
+  width: 31px;
+  height: 45px;
+  background: url("../images/pin.png") no-repeat 0 0;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -15px;
+  transition: all 200ms;
+}
+.todo-item__delete:after {
+  content: "";
+  width: 31px;
+  height: 48px;
+  background: url("../images/pin-dent.png") no-repeat 0 0;
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  margin-left: -15px;
+  z-index: -1;
+}
+.todo-item__delete:hover {
+  height: 50px;
+  top: -35px;
+}
 .todo-item__inner {
     height: 100%;
 }

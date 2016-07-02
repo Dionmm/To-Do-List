@@ -1,4 +1,5 @@
-<div class="todo-item" item="item" ng-style="::{ 'top': item.Ycoord + 'px', 'left': item.Xcoord + 'px' }" ng-dblclick="editTodo()">
+<div class="todo-item" item="item" ng-style="{ 'top': item.Ycoord + 'px', 'left': item.Xcoord + 'px' }" ng-dblclick="editTodo()">
+  <div class="todo-item__delete" ng-click="deleteTodo()"></div>
   <div class="todo-item__inner" ng-if="!editing">
     <div class="todo-item__description" ng-bind="::item.Desc">
 
