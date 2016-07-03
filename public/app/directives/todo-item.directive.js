@@ -56,6 +56,15 @@
         }
       };
 
+      scope.saveTodo = function() {
+
+        TodoListService.updateTodo(scope.item);
+
+        scope.editing = false;
+        scope.item.Desc = scope.item.Desc.replace(/\r?\n/g, '<br />')
+
+      };
+
       scope.deleteTodo = function() {
         TodoListService.deleteTodo(scope.item).then(function() {
           // Add the deleted class to the element then delete it
@@ -75,6 +84,14 @@
             element.remove();
           }, 550); // Kill it slightly before the animation ends
         });
+
+      };
+
+      scope.setPriority = function(priority) {
+
+        scope.item.Priority = priority;
+
+        TodoListService.updateTodo(scope.item);
 
       };
 
