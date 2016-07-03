@@ -43,14 +43,7 @@ router.post('/auth', function(req, res){
 				if(!match){
 					res.json({err:"Incorrect password"});
 				} else{
-					//Simply using the user object returned from the query adds an excessive amount
-					//of data to the payload for some reason, so I'm individually assigning stuff like
-					//{id: user.id} instead
-					var token = jwt.sign({
-						id:user.id,
-						email:user.email,
-						admin:user.admin
-					}, req.app.get('superSecret'),{expiresIn: "24h"});
+					var token = jwt.sign({id: user.id}, req.app.get('superSecret'),{expiresIn: "24h"});
 					res.status(200).json({token:token});
 				}
 			});
