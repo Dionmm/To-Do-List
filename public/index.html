@@ -26,15 +26,28 @@
   <body>
     <div ng-app="todoList">
       <div ng-controller="todoListCtrl as vm">
-        <!--<h1 class="todo-items__header">
-          Todos
-        </h1>-->
         <div class="todo-items__wrapper">
           <div class="todo-items" ng-dblclick="vm.addTodo($event)">
             <div ng-repeat="item in vm.items">
               <todo-item item="item" />
             </div>
           </div>
+        </div>
+        <input type="checkbox" id="login__toggle" class="login__toggle" />
+        <label for="login__toggle">Login/Register</label>
+        <div class="login__sidebar">
+          <h2>Login</h2>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+          <div class="button" ng-click="login()">Login</div>
+          <h2>Register</h2>
+          <label for="email-new">Username</label>
+          <input type="text" id="email-new" name="email-new" />
+          <label for="password-new">Password</label>
+          <input type="password" id="password-new" name="password-new" />
+          <div class="button" ng-click="register()">Register</div>
         </div>
       </div>
     </div>
