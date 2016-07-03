@@ -4,7 +4,7 @@
   "dependencies": {
     "angular": "^1.5.7",
     "angular-sanitize": "^1.5.7",
-    "bcrypt": "^0.8.7",
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",

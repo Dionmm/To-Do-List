@@ -4,7 +4,7 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var User = require("../Model/User");
 var jwt = require('jsonwebtoken');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 let router = express.Router();
 const saltRounds = 13;
