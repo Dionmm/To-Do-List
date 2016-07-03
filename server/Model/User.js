@@ -2,12 +2,12 @@
 
 var mongoose = require('mongoose');
 
-let UserSchema = new mongoose.Schema({
-  "Email": { type: String, required: true },
-  "Password": { type: String, required: true },
-  "PasswordChangeToken": { type: String, required: false },
-  "UserGroup": { type: String, required: true }
+let userSchema = new mongoose.Schema({
+  "email": { type: String, required: true },
+  "password": { type: String, required: true },
+  "passwordChangeToken": { type: String, default: null },
+  "admin": { type: Boolean, required: true }
 });
 
 
-module.exports = mongoose.model("User", newUserSchema)
+module.exports = mongoose.model("User", userSchema)

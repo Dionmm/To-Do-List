@@ -4,11 +4,15 @@ var express = require('express');
 var path = require('path');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
+var config = require('./config');
+var morgan = require('morgan');
+
+
 
 let app = express();
 
 // ========================================== VARIABLES ======================================================
-let dbUrl = 'mongodb://orangeBees:Honey68@ds023654.mlab.com:23654/to-do-list'; //db address to connect
+let dbUrl =  config.database;//db address to connect
 let publicPath = path.join(__dirname, "../public"); //public folder location
 
 
@@ -19,6 +23,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
 	console.log("We're in boss, what now?");
 });
+app.set('superSecret', config.secret);
+
+app.use(morgan('dev'));
+
 
 // ========================================== ROUTERS ======================================================
 let taskRouter = require('./routes/taskRoutes.js');
@@ -32,7 +40,7 @@ app.use("/node_modules", express.static(path.join(__dirname,"../node_modules")))
 
 // ========================================== ROUTING HANDLING ======================================================
 app.use("/task", taskRouter);
-//app.use("/user", userRouter); <-- time to create this one!
+app.use("/user", userRouter);
 
 
 // ========================================== STARTING APP ======================================================

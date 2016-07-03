@@ -1,8 +1,6 @@
 'use strict';
 
 var express = require('express');
-var path = require('path');
-var _ = require("lodash");
 var bodyParser = require("body-parser");
 var Task = require("../Model/Task");
 
@@ -43,8 +41,7 @@ router.post("/", function (req, res) {
       res.status(500).json({"err": err});
     } else{
       console.log("SAVED Task ID " + newTask._id);
-      console.log(result);
-      res.status(200).json({"_id": newTask._id}).end();
+      res.status(200).json({"_id": newTask._id});
     }
   })
 });
@@ -65,7 +62,6 @@ router.put("/:task_id", function(req, res){
       console.error(err.message)
       res.status(500).json({"err": err});
     } else{
-      console.log(task);
       res.status(200).end();
     }
   });
