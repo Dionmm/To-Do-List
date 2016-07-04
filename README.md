@@ -6,7 +6,7 @@ Simple To Do List
 2. cd To-Do-List
 3. npm install
 4. (if you don't have nodemon) npm install -g nodemon
-5. nodemon server/server or npm start (with live typescript compiler)
+5. nodemon server/server or npm start
 6. Server up at: http://localhost:3000/
 
 ## Requirements
@@ -37,11 +37,11 @@ As an administrator, I can see how many tasks each user has created and how many
 
 
 ## Authors
-Project Manager: __Kenneth
+Project Manager: Keneth Karadas (@kennethk91)
 
-Frontend: albertukaz
+Frontend: Edward Januszewski (@EJanuszewski)
 
-Backend: Krizzu, anOrphanedPlatypus
+Backend: Krzysztof Borowy (@Krizzu) & Dion MacIntyre (@Dionmm)
 
 ## License
 MIT
