@@ -5,13 +5,27 @@
     .module('todoList')
     .controller('todoListCtrl', todoListCtrl);
 
-  todoListCtrl.$inject = ['TodoListService'];
+  todoListCtrl.$inject = ['TodoListService', 'UserService'];
 
-  function todoListCtrl(TodoListService) {
+  function todoListCtrl(TodoListService, UserService) {
 
     var vm = this;
     var corkboard;
+    vm.email = '';
+    vm.password = '';
+    vm.emailNew = '';
+    vm.passwordNew = '';
     vm.addTodo = addTodo;
+    vm.login = login;
+    vm.register = register;
+    vm.token = '';
+    vm.loginStatus = '';
+
+    (function() {
+      if(localStorage.getItem('token') !== null) {
+        vm.token = localStorage.getItem('token');
+      }
+    })();
 
     // Set up the draggable corkboard
 
@@ -46,6 +60,28 @@
         
       });
 
+    }
+
+    function login() {
+      UserService.login(vm.email, vm.password).then(function(data) {
+        if(data.err) {
+          vm.loginStatus = 'Incorrect login';
+        }
+        if(data.token) {
+          vm.loginStatus = '';
+          localStorage.setItem('token', data.token);
+          window.location.href = '/';
+        }
+      });
+    }
+
+    function register() {
+      UserService.register(vm.emailNew, vm.passwordNew).then(function(data) {
+        if(data.token) {
+          localStorage.setItem('token', data.token);
+          window.location.href = '/';
+        }
+      });
     }
 
   }

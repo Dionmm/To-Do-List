@@ -236,6 +236,9 @@ body {
   padding: 10px 20px;
   box-sizing: border-box;
 }
+.login__sidebar h2:not(:first-child) {
+  margin-top: 50px;
+}
 .login__toggle:checked ~ .login__sidebar {
   right: 0;
 }
@@ -251,9 +254,12 @@ body {
   box-sizing: border-box;
   background: #fff;
 }
+.login__sidebar .error {
+  color: red;
+}
 .login__sidebar .button {
   background: #333;
   color: #fff;
   padding: 5px;
-  margin: 10px 0 50px;
+  margin: 10px 0;
 }

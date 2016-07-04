@@ -14,7 +14,7 @@
       updateTodo: updateTodo,
       addTodo: addTodo,
       deleteTodo: deleteTodo
-    }
+    };
 
     function getTodos() {
 

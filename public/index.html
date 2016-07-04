@@ -20,6 +20,7 @@
     <script src="/app/controllers/todo-list.controller.js"></script>
     <script src="/app/directives/todo-item.directive.js"></script>
     <script src="/app/services/todo-service.service.js"></script>
+    <script src="/app/services/user-service.service.js"></script>
   </head>
 
   <!-- 3. Display the application -->
@@ -34,20 +35,23 @@
           </div>
         </div>
         <input type="checkbox" id="login__toggle" class="login__toggle" />
-        <label for="login__toggle">Login/Register</label>
-        <div class="login__sidebar">
+        <label for="login__toggle" ng-if="!vm.token">Login/Register</label>
+        <div class="login__sidebar" ng-if="!vm.token">
           <h2>Login</h2>
           <label for="email">Email</label>
-          <input type="text" id="email" name="email" />
+          <input type="text" id="email" name="email" ng-model="vm.email" />
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" />
-          <div class="button" ng-click="login()">Login</div>
+          <input type="password" id="password" name="password" ng-model="vm.password" />
+          <div class="button" ng-click="vm.login()">Login</div>
+          <div class="error" ng-if="vm.loginStatus">
+           {{ vm.loginStatus }}
+          </div>
           <h2>Register</h2>
-          <label for="email-new">Username</label>
-          <input type="text" id="email-new" name="email-new" />
+          <label for="email-new">Email</label>
+          <input type="text" id="email-new" name="email-new" ng-model="vm.emailNew" />
           <label for="password-new">Password</label>
-          <input type="password" id="password-new" name="password-new" />
-          <div class="button" ng-click="register()">Register</div>
+          <input type="password" id="password-new" name="password-new" ng-model="vm.passwordNew" />
+          <div class="button" ng-click="vm.register()">Register</div>
         </div>
       </div>
     </div>
