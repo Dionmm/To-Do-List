@@ -37,7 +37,7 @@ As an administrator, I can see how many tasks each user has created and how many
 
 
 ## Authors
-Project Manager: Keneth Karadas (@kennethk91)
+Project Manager: Kenneth Karadas (@kennethk91)
 
 Frontend: Edward Januszewski (@EJanuszewski)
 
