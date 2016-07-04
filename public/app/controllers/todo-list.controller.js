@@ -27,7 +27,7 @@
       var todo = {
         UserID: '666',
         Status: true,
-        Priority: 'high',
+        Priority: 'medium',
         Desc: 'My new todo',
         Xcoord: e.clientX - 100 + (corkboard.x * -1),
         Ycoord: e.clientY + (corkboard.y * -1)

@@ -26,9 +26,6 @@
   <body>
     <div ng-app="todoList">
       <div ng-controller="todoListCtrl as vm">
-        <!--<h1 class="todo-items__header">
-          Todos
-        </h1>-->
         <div class="todo-items__wrapper">
           <div class="todo-items" ng-dblclick="vm.addTodo($event)">
             <div ng-repeat="item in vm.items">
@@ -36,31 +33,23 @@
             </div>
           </div>
         </div>
+        <input type="checkbox" id="login__toggle" class="login__toggle" />
+        <label for="login__toggle">Login/Register</label>
+        <div class="login__sidebar">
+          <h2>Login</h2>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+          <div class="button" ng-click="login()">Login</div>
+          <h2>Register</h2>
+          <label for="email-new">Username</label>
+          <input type="text" id="email-new" name="email-new" />
+          <label for="password-new">Password</label>
+          <input type="password" id="password-new" name="password-new" />
+          <div class="button" ng-click="register()">Register</div>
+        </div>
       </div>
     </div>
-    <form action="/task" method="post">
-      <input type="text" name="UserID" placeholder="UserID"><br />
-      <input type="text" name="Status" placeholder="Status"><br />
-      <input type="text" name="Priority" placeholder="Priority"><br />
-      <input type="text" name="Desc" placeholder="Desc"><br />
-      <input type="text" name="XCoord" placeholder="XCoord"><br />
-      <input type="text" name="YCoord" placeholder="YCoord"><br />
-      <input type="submit">
-    </form><br /><br /><br />
-    <form action="/task/577046c9d61cfd1d980336db" method="put"> <!-- Manually entered the task id into action for testing -->
-      <input type="text" name="Status" placeholder="Status"><br />
-      <input type="text" name="Priority" placeholder="Priority"><br />
-      <input type="text" name="Desc" placeholder="Desc"><br />
-      <input type="text" name="XCoord" placeholder="XCoord"><br />
-      <input type="text" name="YCoord" placeholder="YCoord"><br />
-      <input type="submit">
-    </form>
-    <form action="/task/577046c9d61cfd1d980336db" method="delete"> <!-- Manually entered the task id into action for testing -->
-      <input type="text" name="TaskID" placeholder="TaskID"><br />
-      <input type="submit">
-    </form>
-    <form action="/task" method="get">
-      <input type="submit">
-    </form>
   </body>
 </html>
