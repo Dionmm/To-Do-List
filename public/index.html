@@ -43,8 +43,12 @@
           <label for="password">Password</label>
           <input type="password" id="password" name="password" ng-model="vm.password" />
           <div class="button" ng-click="vm.login()">Login</div>
+          <div class="button" ng-click="vm.forgot()">Forgot password?</div>
           <div class="error" ng-if="vm.loginStatus">
-           {{ vm.loginStatus }}
+            {{ vm.loginStatus }}
+          </div>
+          <div class="success" ng-if="vm.loginSuccess">
+            {{ vm.loginSuccess }}
           </div>
           <h2>Register</h2>
           <label for="email-new">Email</label>

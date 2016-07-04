@@ -257,6 +257,9 @@ body {
 .login__sidebar .error {
   color: red;
 }
+.login__sidebar .success {
+  color: green;
+}
 .login__sidebar .button {
   background: #333;
   color: #fff;

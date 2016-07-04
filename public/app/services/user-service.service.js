@@ -11,7 +11,8 @@
 
     return {
       login: login,
-      register: register
+      register: register,
+      forgot: forgot
     };
 
     function login(email, password) {
@@ -36,6 +37,20 @@
         login(email, password).then(function(loginResult) {
           deferred.resolve(loginResult);
         });
+      }, function(error) {
+        deferred.reject('Failed');
+      });
+
+      return deferred.promise;
+
+    }
+
+    function forgot(email) {
+
+      var deferred = $q.defer();
+
+      $http.post('/user/forgot', { email: email }).then(function(result) {
+        deferred.resolve(result.data);
       }, function(error) {
         deferred.reject('Failed');
       });

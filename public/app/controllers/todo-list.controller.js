@@ -15,11 +15,13 @@
     vm.password = '';
     vm.emailNew = '';
     vm.passwordNew = '';
+    vm.token = '';
+    vm.loginStatus = '';
+
     vm.addTodo = addTodo;
     vm.login = login;
     vm.register = register;
-    vm.token = '';
-    vm.loginStatus = '';
+    vm.forgot = forgot;
 
     (function() {
       if(localStorage.getItem('token') !== null) {
@@ -80,6 +82,17 @@
         if(data.token) {
           localStorage.setItem('token', data.token);
           window.location.href = '/';
+        }
+      });
+    }
+    
+    function forgot() {
+      UserService.forgot(vm.email).then(function(data) {
+        if(data.err) {
+          vm.loginStatus = 'User not found';
+        } else {
+          vm.loginStatus = '';
+          vm.loginSuccess = 'Email sent!';
         }
       });
     }
