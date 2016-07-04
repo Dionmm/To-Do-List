@@ -21,15 +21,10 @@
     "zone.js": "^0.6.12"
   },
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"nodemon server/server\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "start": "nodemon server/server"
   },
   "description": "Simple To Do List",
   "version": "1.0.0",
-  "devDependencies": {
-    "concurrently": "^2.0.0"
-  },
   "author": "See README",
   "license": "MIT"
 }
