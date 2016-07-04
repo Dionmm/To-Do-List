@@ -23,6 +23,17 @@
     vm.register = register;
     vm.forgot = forgot;
 
+    window.addEventListener('keydown', function(e) {
+      if(e.keyCode === 13) {
+        // Enter
+        if(vm.email && vm.password) {
+          login();
+        } else if(vm.emailNew && vm.passwordNew) {
+          register();
+        }
+      }
+    });
+
     (function() {
       if(localStorage.getItem('token') !== null) {
         vm.token = localStorage.getItem('token');
