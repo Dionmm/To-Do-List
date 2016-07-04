@@ -1,5 +1,9 @@
 {
   "name": "To-Do-List",
+  "description": "Simple To Do List",
+  "version": "1.0.0",
+  "author": "See README",
+  "license": "MIT",
   "main": "server/server.js",
   "dependencies": {
     "angular": "^1.5.7",
@@ -13,13 +17,14 @@
     "mongodb": "^2.1.18",
     "mongoose": "^4.5.2",
     "morgan": "^1.7.0",
+    "nodemailer": "^2.4.2",
     "normalize.css": "^4.2.0"
   },
   "scripts": {
     "start": "nodemon server/server"
   },
-  "description": "Simple To Do List",
-  "version": "1.0.0",
-  "author": "See README",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+	"url": "https://github.com/kennethk91/To-Do-List"
+  }
 }
