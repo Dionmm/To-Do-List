@@ -16,11 +16,11 @@
       deleteTodo: deleteTodo
     };
 
-    function getTodos() {
+    function getTodos(token) {
 
       var deferred = $q.defer();
 
-      $http.get('/task').then(function(result) {
+      $http.get('/task' + (token ? '?token=' + token : '')).then(function(result) {
         deferred.resolve(result.data);
       }, function(error) {
         deferred.reject('Failed');
@@ -31,7 +31,7 @@
     }
     
     function updateTodo(todo) {
-      
+
       $http.put('/task/' + todo._id, todo).then(function(result) {
 
       }, function(error) {

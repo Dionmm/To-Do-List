@@ -13,6 +13,13 @@
 
       scope.item.Desc = scope.item.Desc.replace(/\r?\n/g, '<br />');
       scope.editing = false;
+
+      var token;
+
+      if(localStorage.getItem('token') !== null) {
+        token = localStorage.getItem('token');
+      }
+
       setTimeout(function(){
         element[0].classList.add('ready');
       }, 200);
@@ -39,6 +46,8 @@
           __v: scope.item.__v,
           DateCreated: scope.item.DateCreated
         };
+        if(token)
+          itemCopy.token = token;
         TodoListService.updateTodo(itemCopy);
       });
 
@@ -58,6 +67,9 @@
 
       scope.saveTodo = function() {
 
+        if(token)
+          scope.item.token = token;
+
         TodoListService.updateTodo(scope.item);
 
         scope.editing = false;
@@ -66,6 +78,9 @@
       };
 
       scope.deleteTodo = function() {
+        if(token)
+          scope.item.token = token;
+
         TodoListService.deleteTodo(scope.item).then(function() {
           // Add the deleted class to the element then delete it
           element[0].classList.add('deleted');
@@ -90,6 +105,9 @@
       scope.setPriority = function(priority) {
 
         scope.item.Priority = priority;
+
+        if(token)
+          scope.item.token = token;
 
         TodoListService.updateTodo(scope.item);
 

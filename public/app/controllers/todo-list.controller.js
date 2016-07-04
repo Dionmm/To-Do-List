@@ -34,15 +34,12 @@
       }
     });
 
-    (function() {
-      if(localStorage.getItem('token') !== null) {
-        vm.token = localStorage.getItem('token');
-      }
-    })();
+    if(localStorage.getItem('token') !== null) {
+      vm.token = localStorage.getItem('token');
+    }
 
-    // Set up the draggable corkboard
-
-    TodoListService.getTodos().then(function(data){
+    TodoListService.getTodos(vm.token).then(function(data){
+      // Set up the draggable corkboard
       corkboard = Draggable.create('.todo-items__wrapper', { type:'scroll', edgeResistance: 1 })[0];
       vm.items = data;
     });
@@ -60,6 +57,10 @@
         Ycoord: e.clientY + (corkboard.y * -1)
       };
 
+      if(vm.token) {
+        todo.token = vm.token;
+      }
+
       TodoListService.addTodo(todo).then(function(data) {
         todo._id = data;
         vm.items.push(todo);
@@ -68,6 +69,10 @@
     }
 
     function deleteTodo(todo) {
+
+      if(vm.token) {
+        todo.token = vm.token;
+      }
 
       TodoListService.deleteTodo(todo).then(function(data) {
         
