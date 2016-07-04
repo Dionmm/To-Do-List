@@ -31,19 +31,35 @@ body {
 }
 .todo-item {
     position: absolute;
-    background: yellow;
     width: 200px;
     height: 300px;
-    padding: 30px 10px 10px;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, .2);
     font-family: 'Indie Flower', cursive;
     box-sizing: border-box;
+    border-bottom-right-radius: 60px 5px;
 }
-.todo-item--medium {
-  background: #ff7600;
+.todo-item__inner:after, .todo-item__edit:after {
+  content: "";
+  position:absolute;
+  z-index:-1;
+  right: 0;
+  bottom:17px;
+  width:200px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
+  transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
-.todo-item--high {
-  background: #e44444;
+.todo-item__inner, .todo-item__edit {
+  position: relative;
+  padding: 30px 10px 10px;
+  background: linear-gradient(135deg, #b1ff87 81%,#b1ff87 82%,#dbffc7 100%);
+}
+.todo-item--medium .todo-item__inner, .todo-item--medium .todo-item__edit {
+  background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
+}
+.todo-item--high .todo-item__inner, .todo-item--high .todo-item__edit {
+  background: linear-gradient(135deg, #ff879b 81%,#ff879b 82%,#ffc7d0 100%);
 }
 .todo-item.deleted:not(.deleted--right) {
     animation: deleted 600ms ease-in;
@@ -102,6 +118,7 @@ body {
   left: 50%;
   margin-left: -15px;
   transition: all 200ms;
+  z-index: 1;
   animation: pin 200ms ease-in;
 }
 .todo-item.ready .todo-item__delete {
@@ -178,16 +195,16 @@ body {
 .todo-item__priority > div {
   width: 40px;
   height: 40px;
-  background: yellow;
+  background: #b1ff87;
   text-align: center;
   line-height: 40px;
   cursor: pointer;
 }
 .todo-item__priority > div.todo-item__priority-high {
-  background: #e44444;
+  background: #ff879b;
 }
 .todo-item__priority > div.todo-item__priority-med {
-  background: #ff7600;
+  background: #ffff88;
 }
 .login {
 
