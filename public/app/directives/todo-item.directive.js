@@ -78,7 +78,7 @@
       };
 
       scope.deleteTodo = function() {
-        
+
         TodoListService.deleteTodo(scope.item, token ? token : null).then(function() {
           // Add the deleted class to the element then delete it
           element[0].classList.add('deleted');
@@ -120,7 +120,7 @@
       scope: {
         item: '='
       },
-      templateUrl: 'app/directives/templates/todo-item.html',
+      templateUrl: '/app/directives/templates/todo-item.html',
       link: link
     }
   }

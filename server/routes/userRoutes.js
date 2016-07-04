@@ -106,8 +106,7 @@ router.post('/forgot', function(req, res){
 });
 //TODO: respond with a webpage here
 router.get('/forgot/:token', function(req, res){
-	res.sendFile(path.join(__dirname,'../../public/forgot.html'));
-	//res.json({text: "Some page here so they can reset their password, should post to the exact same url", token: req.params.token});
+	res.sendFile(path.join(__dirname,'../../public/index.html'));
 });
 
 router.post('/forgot/:token', function(req, res){

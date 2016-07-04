@@ -254,10 +254,10 @@ body {
   box-sizing: border-box;
   background: #fff;
 }
-.login__sidebar .error {
+.error {
   color: red;
 }
-.login__sidebar .success {
+.success {
   color: green;
 }
 .login__sidebar .button {
@@ -273,4 +273,46 @@ body {
   background: #fff;
   padding: 5px;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
+}
+.reset {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .5);
+}
+.reset__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 130px;
+  padding: 15px;
+  background: #fff;
+  margin: -65px 0 0 -150px;
+  z-index: 10000;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
+}
+.reset__modal label {
+  display: block;
+  margin-bottom: 10px;
+}
+.reset__modal input[type=password] {
+  width: 100%;
+  border: 1px solid #999;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.reset__modal .button {
+  display: block;
+  background: #333;
+  color: #fff;
+  padding: 5px;
+  margin-top: 10px;
+}
+.reset__modal .success {
+  margin-top: 15px;
 }

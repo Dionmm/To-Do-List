@@ -17,12 +17,15 @@
     vm.passwordNew = '';
     vm.token = '';
     vm.loginStatus = '';
+    vm.resetModal = false;
+    vm.passwordReset = '';
 
     vm.addTodo = addTodo;
     vm.login = login;
     vm.register = register;
     vm.forgot = forgot;
     vm.logout = logout;
+    vm.reset = reset;
 
     window.addEventListener('keydown', function(e) {
       if(e.keyCode === 13) {
@@ -44,6 +47,11 @@
       corkboard = Draggable.create('.todo-items__wrapper', { type:'scroll', edgeResistance: 1 })[0];
       vm.items = data;
     });
+
+    if(window.location.pathname.indexOf('forgot') > -1) {
+      // Reset modal
+      vm.resetModal = true;
+    }
 
     function addTodo(e) {
 
@@ -68,7 +76,7 @@
       });
 
     }
-    
+
     function login() {
       UserService.login(vm.email, vm.password).then(function(data) {
         if(data.err) {
@@ -105,6 +113,18 @@
     function logout() {
       localStorage.removeItem('token');
       window.location.href = '/';
+    }
+
+    function reset() {
+      UserService.reset(window.location.pathname.slice(13), vm.passwordReset).then(function(data) {
+        if(!data.err) {
+          vm.resetStatus = 'Password reset, you may now login';
+          setTimeout(function() {
+            // Did try just hiding the modal but it didn't seem to update
+            window.location.href = '/';
+          }, 2000);
+        }
+      })
     }
 
   }
