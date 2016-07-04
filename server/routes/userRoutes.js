@@ -86,7 +86,7 @@ router.post('/forgot', function(req, res){
 					  text: 'Go fuck yourself, remember your password next time you idiot. http://localhost:3000/user/forgot/' + token
 					});
 
-					//Save the token in the DB for reference later 
+					//Save the token in the DB for reference later
 					user.passwordChangeToken = token;
 					user.save(function(err){
 			          if(err){
@@ -130,31 +130,9 @@ router.post('/forgot/:token', function(req, res){
 		}
 	});
 });
-
+//Error handling
+router.use(function (req, res) {
+  res.send("<div style='text-align: center'><h1 style='margin: 0 auto'>Sorry!</h1><h2>Couldn't find that!</h2><h3><a href='/'>Go back</a></div>");
+});
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

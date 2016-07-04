@@ -94,7 +94,7 @@ router.put("/:task_id", function(req, res){
 // ========================================== DELETE ======================================================
 router.delete("/:task_id", function(req, res){
 
-Task.findById(req.params.task_id, function(err, task){
+  Task.findById(req.params.task_id, function(err, task){
     if(err){
       res.status(500).json({"err": err});
     } else{
@@ -112,7 +112,12 @@ Task.findById(req.params.task_id, function(err, task){
     }
   });
 
-  
+
+});
+
+//Error handling
+router.use(function (req, res) {
+  res.send("<div style='text-align: center'><h1 style='margin: 0 auto'>Sorry!</h1><h2>Couldn't find that!</h2><h3><a href='/'>Go back</a></div>");
 });
 
 

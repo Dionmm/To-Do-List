@@ -36,6 +36,11 @@ app.use("/node_modules", express.static(path.join(__dirname,"../node_modules")))
 app.use("/task", taskRouter);
 app.use("/user", userRouter);
 
+// ERROR 404
+app.use(function (req, res) {
+  res.send("<div style='text-align: center'><h1 style='margin: 0 auto'>Sorry!</h1><h2>Couldn't find that!</h2><h3><a href='/'>Go back</a></div>");
+});
+
 
 // ========================================== STARTING APP ======================================================
 app.listen(3000, function () {
