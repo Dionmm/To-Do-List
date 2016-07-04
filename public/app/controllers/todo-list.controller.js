@@ -22,6 +22,7 @@
     vm.login = login;
     vm.register = register;
     vm.forgot = forgot;
+    vm.logout = logout;
 
     window.addEventListener('keydown', function(e) {
       if(e.keyCode === 13) {
@@ -111,6 +112,11 @@
           vm.loginSuccess = 'Email sent!';
         }
       });
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = '/';
     }
 
   }

@@ -34,6 +34,7 @@
             </div>
           </div>
         </div>
+        <div class="login__logout" ng-if="vm.token" ng-click="vm.logout()">Logout</div>
         <input type="checkbox" id="login__toggle" class="login__toggle" />
         <label for="login__toggle" ng-if="!vm.token">Login/Register</label>
         <div class="login__sidebar" ng-if="!vm.token">
