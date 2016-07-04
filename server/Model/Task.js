@@ -21,9 +21,4 @@ let taskSchema = new mongoose.Schema({
   "DateCreated": {type: Date, required: true, default: Date.now}
 });
 
-// taskSchema.methods.methodName = function(arg1){
-//   //do something here
-//   //like Status check, or priority check
-// };
-
 module.exports = mongoose.model("Task", taskSchema)

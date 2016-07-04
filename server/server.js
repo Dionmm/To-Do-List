@@ -5,9 +5,6 @@ var path = require('path');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var config = require('./config');
-var morgan = require('morgan');
-
-
 
 let app = express();
 
@@ -24,9 +21,6 @@ db.once('open', function(){
 	console.log("We're in boss, what now?");
 });
 app.set('superSecret', config.secret);
-
-app.use(morgan('dev'));
-
 
 // ========================================== ROUTERS ======================================================
 let taskRouter = require('./routes/taskRoutes.js');
