@@ -78,10 +78,8 @@
       };
 
       scope.deleteTodo = function() {
-        if(token)
-          scope.item.token = token;
-
-        TodoListService.deleteTodo(scope.item).then(function() {
+        
+        TodoListService.deleteTodo(scope.item, token ? token : null).then(function() {
           // Add the deleted class to the element then delete it
           element[0].classList.add('deleted');
           if(Math.random() > .5) {

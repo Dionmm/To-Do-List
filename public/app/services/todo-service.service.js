@@ -54,11 +54,11 @@
 
     }
 
-    function deleteTodo(todo) {
+    function deleteTodo(todo, token) {
 
       var deferred = $q.defer();
 
-      $http.delete('/task/' + todo._id).then(function(result) {
+      $http.delete('/task/' + todo._id + (token ? '?token=' + token : '')).then(function(result) {
         deferred.resolve(result.data);
       }, function(error) {
         deferred.reject('Failed');

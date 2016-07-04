@@ -68,19 +68,7 @@
       });
 
     }
-
-    function deleteTodo(todo) {
-
-      if(vm.token) {
-        todo.token = vm.token;
-      }
-
-      TodoListService.deleteTodo(todo).then(function(data) {
-        
-      });
-
-    }
-
+    
     function login() {
       UserService.login(vm.email, vm.password).then(function(data) {
         if(data.err) {
