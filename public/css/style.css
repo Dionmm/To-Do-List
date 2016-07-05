@@ -162,7 +162,7 @@ body {
     height: 100%;
 }
 .todo-item__description {
-  height: 100%;
+  height: calc(100% - 35px);
   overflow-y: scroll;
 }
 .todo-item__done {
