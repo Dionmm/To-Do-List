@@ -111,6 +111,13 @@
 
       };
 
+      scope.toggleDone = function() {
+
+        scope.item.Status = !scope.item.Status;
+        TodoListService.updateTodo(scope.item);
+
+      }
+
     }
     
 

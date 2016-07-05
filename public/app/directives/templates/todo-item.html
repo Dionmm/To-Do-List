@@ -1,10 +1,9 @@
-<div class="todo-item" item="item" ng-class="'todo-item--' + item.Priority" ng-style="{ 'top': item.Ycoord + 'px', 'left': item.Xcoord + 'px' }" ng-dblclick="editTodo($event)">
+<div class="todo-item" item="item" ng-class="('todo-item--' + item.Priority) + ' todo-item--' + (item.Status ? 'done' : 'notdone')" ng-style="{ 'top': item.Ycoord + 'px', 'left': item.Xcoord + 'px' }" ng-dblclick="editTodo($event)">
   <div class="todo-item__delete" ng-click="deleteTodo()"></div>
   <div class="todo-item__inner" ng-if="!editing">
-    <div class="todo-item__description" ng-bind-html="item.Desc">
-
-    </div>
+    <div class="todo-item__description" ng-bind-html="item.Desc"></div>
   </div>
+  <div class="todo-item__done" ng-click="toggleDone()"></div>
   <div class="todo-item__edit" ng-if="editing">
     <textarea type="text" ng-model="item.Desc"></textarea>
     <a class="button" ng-click="saveTodo()">Save</a>

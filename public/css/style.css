@@ -32,11 +32,14 @@ body {
 .todo-item {
     position: absolute;
     width: 200px;
-    height: 300px;
+    height: 340px;
     box-shadow: 0 0 3px 3px rgba(0, 0, 0, .2);
     font-family: 'Indie Flower', cursive;
     box-sizing: border-box;
     border-bottom-right-radius: 60px 5px;
+}
+.todo-item--done {
+  text-decoration: line-through;
 }
 .todo-item__inner:after, .todo-item__edit:after {
   content: "";
@@ -54,6 +57,7 @@ body {
   position: relative;
   padding: 30px 10px 10px;
   background: linear-gradient(135deg, #b1ff87 81%,#b1ff87 82%,#dbffc7 100%);
+  box-sizing: border-box;
 }
 .todo-item--medium .todo-item__inner, .todo-item--medium .todo-item__edit {
   background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
@@ -161,6 +165,29 @@ body {
   height: 100%;
   overflow-y: scroll;
 }
+.todo-item__done {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.todo-item__done:before {
+  content: 'Mark complete';
+}
+.todo-item__done:after {
+  content: '\2714';
+  margin-left: 5px;
+}
+.todo-item--done .todo-item__done:before {
+  content: 'Mark incomplete';
+}
+.todo-item--done .todo-item__done:after {
+  content: '\2718';
+}
+.todo-item:hover .todo-item__done {
+  opacity: 1;
+}
 .todo-item__description::-webkit-scrollbar {
   display: none;
 }
@@ -206,9 +233,7 @@ body {
 .todo-item__priority > div.todo-item__priority-med {
   background: #ffff88;
 }
-.login {
 
-}
 .login__toggle {
   display: none;
 }
